@@ -1,0 +1,16 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "Pont Ferenc"
+        },
+        {
+            "id": 2,
+            "name": "Parlag Irén"
+        },
+        {
+            "id": 3,
+            "name": "Arc Márton"
+        }
+    ]
+}
