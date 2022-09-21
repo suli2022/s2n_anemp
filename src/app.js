@@ -62,7 +62,9 @@ addButton.addEventListener('click', () => {
     .then(response => response.json())
     .then(result => {
         console.log(result);
+        empName.value = '';
     });
+    
 });
 
 function deleteEmployee(id) {
