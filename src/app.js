@@ -23,6 +23,7 @@ dowButton.addEventListener('click', () => {
 
 
 function renderTable(employees) {
+    empTable.innerHTML = '';
     employees.forEach( employee => {
         let tr = document.createElement('tr');
         let tdId = document.createElement('td');
@@ -68,7 +69,9 @@ function deleteEmployee(id) {
     console.log(id);
     let endpoint = 'employees';
     let url = host + '/' + endpoint + '/' + id;
-    fetch(url)
+    fetch(url, {
+        method: 'delete'
+    })
     .then(response => response.json())
     .then(result => {
         console.log(result);
