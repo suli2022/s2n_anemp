@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx lite-server"
+    "start": "npx lite-server",
+    "json": "npx json-server --watch database.json --port 3000"  
   },
   "keywords": [],
   "author": "",
