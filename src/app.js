@@ -5,7 +5,18 @@ const empName = document.querySelector("#name");
 
 const host = 'http://localhost:3000';
 
+
+(()=>{
+   console.log("kívül");
+   getEmployees();
+   
+})();
+
 dowButton.addEventListener('click', () => {    
+    
+});
+
+function getEmployees() {
     let endpoint = 'employees';
     let url = host + '/' + endpoint;
     fetch(url)
@@ -19,8 +30,7 @@ dowButton.addEventListener('click', () => {
         console.log(error);
     });    
 
-});
-
+}
 
 function renderTable(employees) {
     empTable.innerHTML = '';
@@ -29,11 +39,8 @@ function renderTable(employees) {
         let tdId = document.createElement('td');
         let tdName = document.createElement('td');
         let tdDel = document.createElement('td');
-        let delBtn = document.createElement('button');
-        delBtn.textContent = 'Törlés';
-        delBtn.addEventListener('click', ()=> {
-            deleteEmployee(employee.id);
-        });
+        let delBtn = makeDelButton(employee.id);
+        
 
         tr.appendChild(tdId);
         tr.appendChild(tdName);
@@ -44,6 +51,15 @@ function renderTable(employees) {
         tdId.textContent = employee.id;
         tdName.textContent = employee.name;        
     });
+}
+
+function makeDelButton(id) {
+    let delBtn = document.createElement('button');
+    delBtn.textContent = 'Törlés';
+    delBtn.addEventListener('click', ()=> {
+        deleteEmployee(id);
+    });
+    return delBtn;
 }
 
 addButton.addEventListener('click', () => {
