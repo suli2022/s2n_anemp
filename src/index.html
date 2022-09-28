@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>Dolgozók adatai</h1>
 
-<button id="dowButton">Letölt</button>
-<br>
-<label for="name">Új név:</label>
-<input type="text" id="name">
-<button id="addButton">Hozzáad</button>
-
-<table id="empTable"></table>
+    <div class="container">
+        <h1>Dolgozók adatai</h1>
+        <label for="name">Új név:</label>
+        <input type="text" id="name">
+        <button id="addButton" class="btn btn-primary">Hozzáad</button>
+        <table id="empTable" 
+        class="table table-striped mt-2"></table>
+    </div>
     
 </body>
 </html>
