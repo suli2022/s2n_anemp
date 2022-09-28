@@ -57,12 +57,21 @@ function makeDelButton(id) {
     let delBtn = document.createElement('button');
     delBtn.textContent = 'Törlés';
     delBtn.addEventListener('click', ()=> {
-        deleteEmployee(id);
+        let answer = confirm('Biztosan törlöd?');
+        if (answer) {
+            deleteEmployee(id);
+            let actualTr = delBtn.parentElement.parentElement;
+            actualTr.parentNode.removeChild(actualTr);
+        }        
     });
     return delBtn;
 }
 
 addButton.addEventListener('click', () => {
+    addEmployee();
+});
+
+function addEmployee() {
     let endpoint = 'employees';
     let url = host + '/' + endpoint;    
     let employee = {
@@ -80,8 +89,8 @@ addButton.addEventListener('click', () => {
         console.log(result);
         empName.value = '';
     });
-    
-});
+
+}
 
 function deleteEmployee(id) {
     console.log(id);
