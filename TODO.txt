@@ -1,4 +1,3 @@
-TODO: A mentés gomb nem működik.
 TODO: A hozzáadás űrlap modális ablakba
 TODO: A szerkesztés űrlap módális ablakba
 TODO: A törlés és módosítás felirat helyett ikon
