@@ -142,6 +142,9 @@ function makeEditButton(employee) {
 
     editBtn.setAttribute('data-empid', employee.id);
     editBtn.setAttribute('data-empname', employee.name);
+    editBtn.setAttribute('data-bs-toggle', 'modal');
+    editBtn.setAttribute('data-bs-target', '#editModal');
+
 
     editBtn.textContent = 'Módosítás';
     editBtn.addEventListener('click', ()=> {

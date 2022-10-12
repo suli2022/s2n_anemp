@@ -33,7 +33,9 @@ data-bs-target="#addModal">
 
         <table id="empTable" 
         class="table table-striped mt-2"></table>
-        <div class="editor">
+
+
+        <!-- <div class="editor">
             <label for="edited_id">Id:</label>
             <input type="text" id="edited_id" disabled>
             <br>
@@ -44,7 +46,9 @@ data-bs-target="#addModal">
                 class="btn btn-primary">
                 Mentés
             </button>            
-        </div>
+        </div> -->
+
+
     </div>
 
 
@@ -52,16 +56,71 @@ data-bs-target="#addModal">
 
 
   
-  <!-- Modal -->
+  <!--add Modal -->
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Dolgozó felvétel</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Név</label>
+              <input type="text" class="form-control" 
+              id="name">
+            </div>
+          </form>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+          <button type="button" class="btn btn-primary" 
+          data-bs-dismiss="modal"
+          id="addButton"
+          >Ment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <!-- edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Dolgozó módosítása</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+
+          <form>
+            <div class="mb-3">
+              <label for="edited_id" class="form-label">Id</label>
+              <input type="text" class="form-control" 
+              id="edited_id">
+            </div>
+            <div class="mb-3">
+              <label for="edited_name" class="form-label">Név</label>
+              <input type="text" class="form-control" 
+              id="edited_name">
+            </div>
+
+          </form>
+
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
