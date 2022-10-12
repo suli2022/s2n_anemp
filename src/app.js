@@ -61,7 +61,10 @@ function makeDelButton(id) {
     let delBtn = document.createElement('button');
     delBtn.classList.add('btn');
     delBtn.classList.add('btn-info');
-    delBtn.textContent = 'Törlés';
+    
+    //delBtn.textContent = 'Törlés';
+    delBtn.innerHTML = '<i class="bi bi-trash"></i>';
+
     delBtn.addEventListener('click', ()=> {
         let answer = confirm('Biztosan törlöd?');
         if (answer) {
