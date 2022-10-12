@@ -158,6 +158,13 @@ function makeEditButton(employee) {
 saveButton.addEventListener('click', () => {
     console.log('Mentés...');
     actualTr.childNodes[1].textContent = edited_nameElem.value;
+    
+
+    actualTr
+    .childNodes[2]
+    .lastChild
+    .setAttribute('data-empname', edited_nameElem.value);
+
     updateEmployee();
 });
 
