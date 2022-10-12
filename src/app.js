@@ -1,10 +1,16 @@
 const addButton = document.querySelector("#addButton");
 const empTable = document.querySelector("#empTable");
 const empName = document.querySelector("#name");
+const edited_idElem = document.querySelector("#edited_id");
+const edited_nameElem = document.querySelector("#edited_name");
+
+const saveButton = document.querySelector("#saveButton");
+var actualTr = null;
 var tbody = document.createElement('tbody');
 empTable.appendChild(tbody);
 
 const host = 'http://localhost:3000';
+
 
 
 (()=>{
@@ -60,7 +66,7 @@ function makeDelButton(id) {
         let answer = confirm('Biztosan törlöd?');
         if (answer) {
             deleteEmployee(id);
-            let actualTr = delBtn.parentElement.parentElement;
+            actualTr = delBtn.parentElement.parentElement;
             actualTr.parentNode.removeChild(actualTr);
         }        
     });
@@ -108,7 +114,10 @@ function addEmployeeToTable(employee) {
     tr.appendChild(tdButton);
 
     let delButton = makeDelButton(employee.id);
+    let editButton = makeEditButton(employee);
     tdButton.appendChild(delButton);
+    tdButton.appendChild(editButton);
+
     tbody.appendChild(tr);
 }
 
@@ -129,9 +138,47 @@ function makeEditButton(employee) {
     let editBtn = document.createElement('button');
     editBtn.classList.add('btn');
     editBtn.classList.add('btn-info');
+    editBtn.classList.add('ms-1');
+
+    editBtn.setAttribute('data-empid', employee.id);
+    editBtn.setAttribute('data-empname', employee.name);
+
     editBtn.textContent = 'Módosítás';
     editBtn.addEventListener('click', ()=> {
         console.log('Szerkesztés működik');
+        //TODO: Törölni kell ezt sort
+        console.log(employee.id);
+        edited_idElem.value = editBtn.dataset.empid; 
+        edited_nameElem.value = editBtn.dataset.empname;
+        actualTr = editBtn.parentElement.parentElement;
     });
     return editBtn;
+}
+
+saveButton.addEventListener('click', () => {
+    console.log('Mentés...');
+    actualTr.childNodes[1].textContent = edited_nameElem.value;
+    updateEmployee();
+});
+
+function updateEmployee() {
+    console.log('REST API-ba mentés');
+    //edited_idElem.value
+    let endpoint = 'employees' + '/' + edited_idElem.value;
+    let url = host + '/' + endpoint;
+    // console.log(url);
+    fetch(url, {
+        method: 'put',
+        body: JSON.stringify({
+            id: edited_idElem.value,
+            name: edited_nameElem.value
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+    });
 }
