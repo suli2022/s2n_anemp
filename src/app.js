@@ -149,7 +149,9 @@ function makeEditButton(employee) {
     editBtn.setAttribute('data-bs-target', '#editModal');
 
 
-    editBtn.textContent = 'Módosítás';
+    // editBtn.textContent = 'Módosítás';
+    editBtn.innerHTML = '<i class="bi bi-pencil"></i>';
+
     editBtn.addEventListener('click', ()=> {
         console.log('Szerkesztés működik');
         //TODO: Törölni kell ezt sort
